@@ -10,12 +10,9 @@ const IterationSample = () => {
 
   const [inputText, setInputText] = useState("");
 
-  const [nextId, setNextId] = useState(5);
-
   const onChange = (e) => setInputText(e.target.value);
   const onClick = () => {
-    const nextNames = [...names, { id: nextId, text: inputText }];
-    setNextId(nextId + 1);
+    const nextNames = [...names, { id: names.length + 1, text: inputText }];
     setNames(nextNames);
     setInputText("");
   };
