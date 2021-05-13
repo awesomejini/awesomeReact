@@ -14,10 +14,7 @@ const IterationSample = () => {
 
   const onChange = (e) => setInputText(e.target.value);
   const onClick = () => {
-    const nextNames = names.concat({
-      id: nextId,
-      text: inputText,
-    });
+    const nextNames = [...names, { id: nextId, text: inputText }];
     setNextId(nextId + 1);
     setNames(nextNames);
     setInputText("");
