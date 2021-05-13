@@ -23,7 +23,7 @@ class EventPractice extends Component {
   render() {
     return (
       <>
-        <h1> 이벤트 연습 </h1>
+        <h1>이벤트 연습</h1>
         <input
           type="text"
           name="username"
