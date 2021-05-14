@@ -1,30 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useReducer } from "react";
+
+function reducer(state, action) {
+  return {
+    ...state,
+    [action.name]: action.value,
+  };
+}
 
 const Info = () => {
-  const [name, setName] = useState("");
-  const [nickname, setNickname] = useState("");
-  useEffect(() => {
-    console.log("effect");
-    console.log(name);
-    return () => {
-      console.log("cleanup");
-      console.log(name);
-    };
-  }, []);
+  const [state, dispatch] = useReducer(reducer, {
+    name: "",
+    nickname: "", //초기값
+  });
 
-  const onChaneName = (e) => {
-    setName(e.target.value);
-  };
-
-  const onChaneNickname = (e) => {
-    setNickname(e.target.value);
+  const { name, nickname } = state; // 구조분해 할당
+  const onChange = (e) => {
+    dispatch(e.target);
   };
 
   return (
     <div>
       <div>
-        <input value={name} onChange={onChaneName} />
-        <input value={nickname} onChange={onChaneNickname} />
+        <input name="name" value={name} onChange={onChange} />
+        <input name="nickname" value={nickname} onChange={onChange} />
       </div>
       <div>
         <div>
