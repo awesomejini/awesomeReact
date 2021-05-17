@@ -1,6 +1,6 @@
 # awesomeReact
 
-## 20210512 / etc-practice
+## 20210512~ / etc-practice
 '리액트를 다루는 기술' 등 참고 서적 기반 연습입니다.
 
 ## 20210510 / voca
