@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useRef } from "react";
 
 const getAverage = (numbers) => {
   console.log("평균값 계산 중..");
@@ -9,6 +9,7 @@ const getAverage = (numbers) => {
 const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
+  const inputEI = useRef(null);
 
   const onChange = useCallback((e) => {
     setNumber(e.target.value);
@@ -18,6 +19,7 @@ const Average = () => {
     const nextList = [...list, parseInt(number)];
     setList(nextList);
     setNumber("");
+    inputEI.current.focus();
   }, [number, list]);
 
   // list배열의 내용이 바뀔때만 getAverage함수 호출
@@ -25,7 +27,7 @@ const Average = () => {
 
   return (
     <div>
-      <input value={number} onChange={onChange} />
+      <input value={number} onChange={onChange} ref={inputEI} />
       <button onClick={onInsert}>등록</button>
       <ul>
         {list.map((value, i) => {
