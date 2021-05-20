@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 
 import './App.css';
 import TodoTemplate from './components/TodoTemplate';
@@ -6,6 +6,7 @@ import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
 function App() {
+  // eslint-disable-next-line
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -23,9 +24,25 @@ function App() {
       checked: false,
     },
   ]);
+
+  const nextId = useRef(todos.length + 1);
+
+  const onInsert = useCallback(
+    (text) => {
+      const todo = {
+        id: nextId.current,
+        text,
+        checked: false,
+      };
+      setTodos([...todos, todo]);
+      nextId.current += 1;
+    },
+    [todos],
+  );
+
   return (
     <TodoTemplate>
-      <TodoInsert />
+      <TodoInsert onInsert={onInsert} />
       <TodoList todos={todos} />
     </TodoTemplate>
   );
