@@ -5,25 +5,21 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
+function createBulkTodos() {
+  const arr = [];
+  for (let i = 0; i <= 200; i++) {
+    arr.push({
+      id: i,
+      text: `할일 ${i}`,
+      checked: false,
+    });
+  }
+  return arr;
+}
+
 function App() {
   // eslint-disable-next-line
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '리액트의 기초 알아보기',
-      checked: true,
-    },
-    {
-      id: 2,
-      text: '컴포넌트 스타일링 해보기',
-      checked: true,
-    },
-    {
-      id: 3,
-      text: '일정 관리 앱 만들어 보기',
-      checked: false,
-    },
-  ]);
+  const [todos, setTodos] = useState(createBulkTodos);
 
   const nextId = useRef(todos.length + 1);
 
@@ -34,7 +30,7 @@ function App() {
         text,
         checked: false,
       };
-      setTodos([...todos, todo]);
+      setTodos((todos) => [...todos, todo]);
       nextId.current += 1;
     },
     [todos],
@@ -42,14 +38,14 @@ function App() {
 
   const onRemove = useCallback(
     (id) => {
-      setTodos(todos.filter((todo) => todo.id !== id));
+      setTodos((todos) => todos.filter((todo) => todo.id !== id));
     },
     [todos],
   );
 
   const onToggle = useCallback(
     (id) => {
-      setTodos(
+      setTodos((todos) =>
         todos.map((todo) =>
           todo.id === id ? { ...todo, checked: !todo.checked } : todo,
         ),
