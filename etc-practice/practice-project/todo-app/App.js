@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useReducer, useCallback, useRef } from 'react';
 
 import './App.css';
 import TodoTemplate from './components/TodoTemplate';
@@ -17,42 +17,44 @@ function createBulkTodos() {
   return arr;
 }
 
+function todoReducer(todos, action) {
+  switch (action.type) {
+    case 'INSERT':
+      return [...todos, action.todo];
+    case 'REMOVE':
+      return todos.filter((todo) => todo.id !== action.id);
+    case 'TOGGLE':
+      return todos.map((todo) =>
+        todo.id === action.id ? { ...todo, checked: !todo.checked } : todo,
+      );
+    default:
+      return todos;
+  }
+}
+
 function App() {
   // eslint-disable-next-line
-  const [todos, setTodos] = useState(createBulkTodos);
+  const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
 
   const nextId = useRef(todos.length + 1);
 
-  const onInsert = useCallback(
-    (text) => {
-      const todo = {
-        id: nextId.current,
-        text,
-        checked: false,
-      };
-      setTodos((todos) => [...todos, todo]);
-      nextId.current += 1;
-    },
-    [todos],
-  );
+  const onInsert = useCallback((text) => {
+    const todo = {
+      id: nextId.current,
+      text,
+      checked: false,
+    };
+    dispatch({ type: 'INSERT', todo });
+    nextId.current += 1;
+  }, []);
 
-  const onRemove = useCallback(
-    (id) => {
-      setTodos((todos) => todos.filter((todo) => todo.id !== id));
-    },
-    [todos],
-  );
+  const onRemove = useCallback((id) => {
+    dispatch({ type: 'REMOVE', id });
+  }, []);
 
-  const onToggle = useCallback(
-    (id) => {
-      setTodos((todos) =>
-        todos.map((todo) =>
-          todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-        ),
-      );
-    },
-    [todos],
-  );
+  const onToggle = useCallback((id) => {
+    dispatch({ type: 'TOGGLE', id });
+  }, []);
 
   return (
     <TodoTemplate>
