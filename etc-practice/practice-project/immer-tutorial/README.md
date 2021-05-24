@@ -1,1 +1,5 @@
-# immer tutorial 진행중
+# Immer tutorial 진행중입니다
+20210524
+- 시작
+
+### 부분 미숙한 상태입니다.
