@@ -2,6 +2,7 @@
 
 - ## 20210528~ / side-project
 > 명시적 기록(버그, 수정내용, 익힐 내용 )을 남기면서 프로젝트 진행중입니다.
+> https://github.com/awesomejini/awesomeReact/tree/main/side-project/02_ccoccotalk
 
 - ## 20210512~ / etc-practice
 > '리액트를 다루는 기술' 등 참고 서적 기반 연습입니다.
