@@ -5,8 +5,39 @@
 - ---
 
 + 이미지 수정 및 프로필 디테일 시도 실패  
-  ###### (Friends.js 에서 처리하려고 했는데 전체 덮는 div가 만들어 지지 않았음, App.js 에서 건드려야할 것 같다 느낌)  
+  ###### (Friends.js 에서 처리하려고 했는데 전체 덮는 div가 만들어 지지 않았음, App.js 에서 건드려야할 것 같다 느낌) 
+  실패 소스
+  ```javascript
+   const FriendDetail = ({ profileImage, name, stateMsg }) => {
+    return (
+      <>
+        <div className="friendDetail">
+          <img src={profileImage} alt={name} />
+          <p>{name}</p>
+          <p>{stateMsg}</p>
+        </div>
+      </>
+    );
+  };
+  ```
+  ```javascript
+  props.friendsData.map((friend) => {
+                  if (friend.birthDay === true) {
+                    return (
+                      <li
+                        className="li-col"
+                        key={friend.id}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          FriendDetail(friend);
+                          setFriendDetail(true);
+                        }}
+                      >  ...
 
+  ```
+  
+  
+  
 * [x] 버그 수정 완료
 
 <img width="30%" src="https://user-images.githubusercontent.com/75153322/119943103-8d044400-bfcd-11eb-8de8-3abae6418bde.gif" />
