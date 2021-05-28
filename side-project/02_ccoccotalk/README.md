@@ -274,4 +274,3 @@ function Friends(props){
 export default Friends;
 ```
 
-> 토글부분 버그
