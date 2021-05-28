@@ -4,6 +4,51 @@
 버그가 발생한 내용이 어렵지 않은 거 같은데 헤매고 있었던 부분있습니다.
 
 ---
+- 20210528 기록 : 일부 내용 함수로 전환 & 토클 버그 수정
+- ---
+```javascript
+const arrow = (modal, boolean) => {
+    if (boolean) {
+      return (
+        <a
+          href="/"
+          className="toggle-arrow-s"
+          onClick={(e) => {
+            e.preventDefault();
+            modal(false);
+          }}
+        >
+          <i className="fas fa-chevron-up"></i>
+        </a>
+      );
+    } else {
+      return (
+        <a
+          href="/"
+          className="toggle-arrow-s"
+          onClick={(e) => {
+            e.preventDefault();
+            modal(true);
+          }}
+        >
+          <i className="fas fa-chevron-down"></i>
+        </a>
+      );
+    }
+  };
+  
+  {birthModal === true
+              ? arrow(setBirthModal, true)
+              : arrow(setBirthModal, false)}
+```
+
+```javascript
+e.preventDefault();
+// 미 기재로 인한 버그로 수정 완료했습니다.
+```
+
+
+---
 - 20210427 기록
 - ---
 
