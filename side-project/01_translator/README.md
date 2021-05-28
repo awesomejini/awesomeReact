@@ -2,7 +2,9 @@
 
 번역기를 구현하고 싶었으나 링크 연결까지 밖에 구현하지 못하였습니다.
 
+---
 - 20210528 기록
+- ---
 
 ```javascript
 // https://react-icons.github.io/react-icons
