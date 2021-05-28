@@ -1,11 +1,16 @@
 # ccoccotalk - X톡 다크모드
 
 본래 20210427에 제작한 내용이였으나 업로드를 잊고 있었다가 깃허브 부분 정리하면서 미업로드 인지 후 올립니다.  
-버그가 발생한 내용이 어렵지 않은 거 같은데 헤매고 있었던 부분있습니다.
+##### 버그가 발생한 내용이 어렵지 않은 거 같은데 헤매고 있었던 부분있습니다.
+
 
 ---
 - 20210528 기록 : 일부 내용 함수로 전환 & 토클 버그 수정
 - ---
+* [x] 버그 수정 완료
+
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/119943103-8d044400-bfcd-11eb-8de8-3abae6418bde.gif" />
+
 ```javascript
 const arrow = (modal, boolean) => {
     if (boolean) {
@@ -52,6 +57,10 @@ e.preventDefault();
 ---
 - 20210427 기록
 - ---
+
+버그 : 토글 아이콘 클릭시 새로고침 버그 (클릭 한번에 새로고침)
+
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/119943813-80342000-bfce-11eb-86ac-8e0a8b0231eb.gif" />
 
 ```javascript
 import React, { useState } from 'react';
