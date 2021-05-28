@@ -6,6 +6,8 @@
 - 20210528 기록
 - ---
 
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/119946422-92fc2400-bfd1-11eb-9768-bc5f8b13c254.gif" />
+
 ```javascript
 // https://react-icons.github.io/react-icons
 
