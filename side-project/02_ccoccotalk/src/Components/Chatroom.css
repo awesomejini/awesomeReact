@@ -1,0 +1,12 @@
+.chatroom-top-wrap {
+  margin-top: -60px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.chatroom-top-wrap .prevBtn img {
+  width: 8%;
+  padding: 10px 0;
+}
