@@ -1,6 +1,83 @@
 # ccoccotalk - X톡 다크모드
 
 ---
+- 20210529 기록 : 프로필 디테일 재도전 및 성공 (소스 상태는 지못미지만 우선 성공입니다.)
+- ---
+
+* [x] 시도 성공 화면
+
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/120059162-a0c1b000-c08a-11eb-8f8c-dfc6adcbf2ec.gif" />
+
+###### 이미지는 https://placeimg.com/900/1500/any 로 임의 사용하였습니다.
+
+
++ 이미지 수정 및 프로필 디테일 시도 실패 건  
+  성공 소스
+  ```javascript
+    const [friendDetail, setFriendDetail] = useState(props.setFriendDetail);
+    const [params, setParams] = useState({});
+    
+    const FriendDetail = () => {
+    return (
+      <>
+        <div className="friendDetail">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setFriendDetail(!friendDetail);
+            }}
+          ></button>
+          <div className="bgImg">이미지 로딩될것임</div>
+          <div
+            className="profileImage"
+            style={{ backgroundImage: "url(" + params.profileImage + ")" }}
+          ></div>
+          <p>{params.name}</p>
+          <p>{params.stateMsg}</p>
+          <hr />
+        </div>
+      </>
+    );
+  };
+    
+    ...
+    
+    return (
+    <>
+      {friendDetail ? (
+        <FriendDetail />
+      ) : (
+        <>
+          <div className="ad-wrap">
+            <div className="ad">
+              <a href="https://awesomejini.tistory.com/">
+                <b>awesomejini 블로그</b>로 놀러오세요~!
+              </a>
+            </div>
+          </div>
+          <Nav navMenu={props.navMenu} nav={props.nav} />
+          
+          ...
+          
+          {birthModal === true
+                  ? props.friendsData.map((friend) => {
+                      if (friend.birthDay === true) {
+                        return (
+                          <li
+                            className="li-col"
+                            key={friend.id}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setParams(friend);
+                              FriendDetail(e);
+                              setFriendDetail(true);
+                            }}
+                          >
+  ```
+
+
+
+---
 - 20210528 기록 : 일부 내용 함수로 전환 & 토클 버그 수정
 - ---
 
