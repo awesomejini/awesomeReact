@@ -4,6 +4,11 @@
 - 20210529 기록 : 프로필 디테일 재도전 및 성공 (소스 상태는 지못미지만 우선 성공입니다.)
 - ---
 
+* [x] Chatroom (페이지 이동만 `/chatroom/:id` 구분 상태)
+
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/120066035-83eba380-c0af-11eb-9af3-8327c1a132e7.gif" />
+
+
 * [x] 시도 성공 화면
 
 <img width="30%" src="https://user-images.githubusercontent.com/75153322/120059162-a0c1b000-c08a-11eb-8f8c-dfc6adcbf2ec.gif" />
