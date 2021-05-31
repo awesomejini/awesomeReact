@@ -4,6 +4,8 @@
 - 20210531 기록
 - ---
 
++ Friends.js 검색 모달 추가 (기능 구현 X)
+
 * [x] Chatroom 단순화 구현
 
 <img width="30%" src="https://user-images.githubusercontent.com/75153322/120149682-0649a400-c225-11eb-81c5-cd5fdebff33f.gif" />
