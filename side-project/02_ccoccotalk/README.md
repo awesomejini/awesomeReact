@@ -1,6 +1,89 @@
 # ccoccotalk - X톡 다크모드
 
 ---
+- 20210531 기록
+- ---
+
+* [x] Chatroom 단순화 구현
+
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/120149682-0649a400-c225-11eb-81c5-cd5fdebff33f.gif" />
+
+  성공 소스
+  ```javascript
+  <Route path="/chatroom/:id" render={() => <Chatroom />}></Route>
+  ```
+  
+  ```javascript
+    import React, { useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import "./Chatroom.css";
+import data from "../friendsData";
+
+function Chatroom() {
+  let { id } = useParams();
+  let history = useHistory();
+  const [inputText, setInputText] = useState("");
+  const [chatTexts, setChatTexts] = useState([]);
+
+  return (
+    <>
+      <div className="chatroom-top-wrap">
+        <ul className="ul-row">
+          <li
+            onClick={(e) => {
+              e.preventDefault();
+              history.goBack();
+            }}
+            className="prevBtn"
+          >
+            <i className="fas fa-chevron-left"></i>
+          </li>
+          <li className="chat-title li-row">{data[id].name}</li>
+          <li className="li-row">
+            <a className="searchBtn fas fa-search"></a>
+          </li>
+          <li className="li-row">
+            <a href="/" className="searchBtn fas fa-bars"></a>
+          </li>
+        </ul>
+      </div>
+      <div className="chatroom-content">
+        <div className="chat-box">
+          {chatTexts.map((text, i) => {
+            return <div key={i}>{text}</div>;
+          })}
+        </div>
+        <form action="">
+          <input
+            type="text"
+            value={inputText}
+            onChange={(e) => {
+              e.preventDefault();
+              setInputText(e.target.value);
+            }}
+          />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              let copy = [...chatTexts];
+              copy.push(inputText);
+              setChatTexts(copy);
+              setInputText("");
+            }}
+          >
+            전송
+          </button>
+        </form>
+      </div>
+    </>
+  );
+}
+
+export default Chatroom;
+
+  ```
+
+---
 - 20210529 기록 : 프로필 디테일 재도전 및 성공 (소스 상태는 지못미지만 우선 성공입니다.)
 - ---
 
