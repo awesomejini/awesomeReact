@@ -6,6 +6,10 @@
   /* border-bottom: 1px solid #eee; */
 }
 
+.chatroom-top-wrap .prevBtn {
+  cursor: pointer;
+}
+
 .chatroom-top-wrap .prevBtn img {
   width: 8%;
   padding: 10px 0;
