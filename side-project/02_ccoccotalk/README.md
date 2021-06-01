@@ -1,6 +1,93 @@
 # ccoccotalk - X톡 다크모드
 
 ---
+- 20210601 기록
+- ---
+
+* [x] SearchFriend.js 검색 모달 추가 (간단 구현)
+
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/120265194-6ea68d00-c2da-11eb-9536-19ecfec23881.gif" />
+
+  성공 소스
+  ```javascript
+import React from "react";
+import "./SearchFriend.css";
+import friendsData from "../friendsData";
+import { useHistory } from "react-router-dom";
+import { useState } from "react";
+
+const SearchFriend = () => {
+  let history = useHistory();
+  let [inputValue, setInputValue] = useState();
+
+  const onChange = (e) => {
+    e.preventDefault();
+    setInputValue(e.target.value);
+  };
+
+  const onSearch = (e) => {
+    let result = [];
+    let inputValue = e;
+    for (let i = 0; i < friendsData.length; i++) {
+      if (friendsData[i].name.includes(inputValue)) {
+        result.push(
+          <li className="result-list li-col" key={i}>
+            <a
+              href="/"
+              className="thumb-img-s-normal"
+              style={{
+                background: `white url(${friendsData[i].profileImage}) no-repeat top 4px center/70%`,
+              }}
+            ></a>
+            <div className="text">
+              <h4>{friendsData[i].name}</h4>
+              <p>{friendsData[i].stateMsg}</p>
+            </div>
+          </li>
+        );
+      }
+    }
+    return result;
+  };
+
+  return (
+    <>
+      <div className="searchModal">
+        <ul className="ul-row">
+          <li
+            onClick={(e) => {
+              e.preventDefault();
+              history.push("/");
+            }}
+            className="prevBtn"
+          >
+            <i className="fas fa-chevron-left"></i>
+          </li>
+          <li className="search-wrap">
+            <form>
+              <input
+                type="text"
+                placeholder="Search"
+                value={inputValue}
+                onChange={onChange}
+              />
+            </form>
+          </li>
+        </ul>
+        <div className="search-result">
+          <ul>{onSearch(inputValue)}</ul>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default SearchFriend;
+
+  ```
+
+
+---
 - 20210531 기록
 - ---
 
@@ -18,7 +105,7 @@
   ```
   
   ```javascript
-    import React, { useState } from "react";
+import React, { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "./Chatroom.css";
 import data from "../friendsData";
