@@ -1,6 +1,12 @@
 # ccoccotalk - X톡 다크모드
 
 ---
+- 구현 내역
+- ---
+
+<img width="30%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120265194-6ea68d00-c2da-11eb-9536-19ecfec23881.gif" /><img width="30.5%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120149682-0649a400-c225-11eb-81c5-cd5fdebff33f.gif" />
+
+---
 - 20210601 기록
 - ---
 
