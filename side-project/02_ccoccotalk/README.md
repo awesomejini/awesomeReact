@@ -4,11 +4,15 @@
 - 구현 내역
 - ---
 
-<img width="30%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120268734-57b76900-c2e1-11eb-8355-ce1ccb00caa7.gif" /><img width="30.35%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120149682-0649a400-c225-11eb-81c5-cd5fdebff33f.gif" />
+<img width="30%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120268734-57b76900-c2e1-11eb-8355-ce1ccb00caa7.gif" /><img width="30.35%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120149682-0649a400-c225-11eb-81c5-cd5fdebff33f.gif" /><img width="30.35%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120291484-50eb1f00-c2fe-11eb-99ef-0c127d5c90c8.gif" />
 
 ---
 - 20210601 기록
 - ---
+
+* [x] News.js 컴포넌트 추가
+
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/120291484-50eb1f00-c2fe-11eb-99ef-0c127d5c90c8.gif" />
 
 * [x] SearchFriend.js 검색 모달 추가
 
