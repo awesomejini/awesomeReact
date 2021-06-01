@@ -15,31 +15,33 @@
 <img width="30%" src="https://user-images.githubusercontent.com/75153322/120268734-57b76900-c2e1-11eb-8355-ce1ccb00caa7.gif" />
 
   성공 소스
+  
   ```javascript
-import React from "react";
-import "./SearchFriend.css";
-import friendsData from "../friendsData";
-import { useHistory } from "react-router-dom";
-import { useState } from "react";
-
-const SearchFriend = () => {
+  const SearchFriend = (props) => {
   let history = useHistory();
   let [inputValue, setInputValue] = useState();
-
-  const onChange = (e) => {
-    e.preventDefault();
-    setInputValue(e.target.value);
-  };
-
+  const [friendDetail, setFriendDetail] = useState(props.setFriendDetail);
+  const [params, setParams] = useState({});
+  ```
+  
+  ```javascript
   const onSearch = (e) => {
     let result = [];
     let inputValue = e;
     for (let i = 0; i < friendsData.length; i++) {
       if (friendsData[i].name.includes(inputValue)) {
         result.push(
-          <li className="result-list li-col" key={i}>
+          <li
+            className="result-list li-col"
+            key={i}
+            onClick={(e) => {
+              e.preventDefault();
+              setParams(friendsData[i]);
+              setFriendDetail(true);
+            }}
+          >
             <a
-              href="/"
+              href="/friends"
               className="thumb-img-s-normal"
               style={{
                 background: `white url(${friendsData[i].profileImage}) no-repeat top 4px center/70%`,
@@ -56,39 +58,41 @@ const SearchFriend = () => {
     return result;
   };
 
-  return (
-    <>
-      <div className="searchModal">
-        <ul className="ul-row">
-          <li
+  const FriendDetail = () => {
+    return (
+      <>
+        <div className="friendDetail">
+          <button
             onClick={(e) => {
               e.preventDefault();
-              history.push("/");
+              setFriendDetail(!friendDetail);
             }}
-            className="prevBtn"
-          >
-            <i className="fas fa-chevron-left"></i>
-          </li>
-          <li className="search-wrap">
-            <form>
-              <input
-                type="text"
-                placeholder="Search"
-                value={inputValue}
-                onChange={onChange}
-              />
-            </form>
-          </li>
-        </ul>
-        <div className="search-result">
-          <ul>{onSearch(inputValue)}</ul>
+          ></button>
+          <div className="bgImg">이미지 로딩될것임</div>
+          <div
+            className="profileImage"
+            style={{ backgroundImage: "url(" + params.profileImage + ")" }}
+          ></div>
+          <p>{params.name}</p>
+          <p>{params.stateMsg}</p>
+          <hr />
+          <ul className="connect-wrap">
+            <li>
+              <a href={`/chatroom/${params.id}`}>
+                <img src="https://image.flaticon.com/icons/png/512/2462/2462719.png" />
+              </a>
+            </li>
+            <li>
+              <img src="https://image.flaticon.com/icons/png/512/159/159832.png" />
+            </li>
+            <li>
+              <img src="https://image.flaticon.com/icons/png/512/591/591410.png" />
+            </li>
+          </ul>
         </div>
-      </div>
-    </>
-  );
-};
-
-export default SearchFriend;
+      </>
+    );
+  };
 
   ```
 
