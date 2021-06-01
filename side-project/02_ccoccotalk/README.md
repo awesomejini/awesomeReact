@@ -4,15 +4,15 @@
 - 구현 내역
 - ---
 
-<img width="30%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120265194-6ea68d00-c2da-11eb-9536-19ecfec23881.gif" /><img width="30.5%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120149682-0649a400-c225-11eb-81c5-cd5fdebff33f.gif" />
+<img width="30%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120268734-57b76900-c2e1-11eb-8355-ce1ccb00caa7.gif" /><img width="30.35%" aligh="left" src="https://user-images.githubusercontent.com/75153322/120149682-0649a400-c225-11eb-81c5-cd5fdebff33f.gif" />
 
 ---
 - 20210601 기록
 - ---
 
-* [x] SearchFriend.js 검색 모달 추가 (간단 구현)
+* [x] SearchFriend.js 검색 모달 추가
 
-<img width="30%" src="https://user-images.githubusercontent.com/75153322/120265194-6ea68d00-c2da-11eb-9536-19ecfec23881.gif" />
+<img width="30%" src="https://user-images.githubusercontent.com/75153322/120268734-57b76900-c2e1-11eb-8355-ce1ccb00caa7.gif" />
 
   성공 소스
   ```javascript
