@@ -1,0 +1,72 @@
+.account-wrap {
+  padding: 1.5rem;
+}
+
+.userImage {
+  width: 6rem;
+  height: 6rem;
+  background: white;
+  border-radius: 2.5rem;
+  background-image: url('https://placeimg.com/400/400/any');
+  background-size: cover;
+}
+
+.account-list {
+  width: 100%;
+  height: auto;
+
+}
+
+.account-list li {
+  width: 100%;
+  height: auto;
+  background: white;
+  border-radius: 1rem 1rem 0 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 10px 2px rgb(77 77 217);
+  margin-top: -1rem;
+}
+
+.account-list li:first-child {
+  margin-top: 0;
+}
+
+.account-list li:last-child {
+  border-radius: 1rem;
+}
+
+.account-list li h5 {
+  padding: 0.3rem 0.7rem;
+  color: white;
+  background: rgb(77, 77, 217);
+  display: inline;
+  border-radius: 1rem;
+}
+
+.account-list li p {
+  font-size: 0.8rem;
+  color: black;
+  padding: 0.3rem;
+}
+
+.account-list li p span {
+  opacity: 0.5;
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.account-list .balance {
+  font-size: 1.5rem;
+  text-align: right;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+}
+
+.account-list .balance > span {
+  font-size: 0.8rem;
+  margin-left: 0.1rem;
+  font-weight: normal;
+}

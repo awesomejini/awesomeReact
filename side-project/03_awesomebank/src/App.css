@@ -1,0 +1,12 @@
+ul, li, a {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+}
+
+.bg-purple {
+  background: rgb(98, 80, 255);
+  color: white;
+}
